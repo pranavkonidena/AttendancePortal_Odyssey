@@ -18,6 +18,9 @@ Run localhost:3000
 ## Tech stack used
 #### Solidity Ether  Ethereum html Css Javascript NodeJS
 
+## The contract is available at:
+https://github.com/berserkenthusiastabishek/attendance-portal-contracts
+
 ## Made by:
 ### Team CryptoSquad : Abishek , Angel , Dhruv , Pranav for Odyssey '23
 
