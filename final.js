@@ -16,7 +16,8 @@ var address = "0x3BE5b393B88072a6b87A901db12A6b28A9F71C67";
 
 var read_contract = new ethers.Contract(address , abi ,provider);
 // var write_contract = new ethers.Contract(address , abi , signer);
-
+const wallet = new ethers.Wallet(privateKey, provider);
+var write_contract = new ethers.Contract(address , abi , wallet);
 const main = async () => {
 
     // To read
@@ -24,8 +25,8 @@ const main = async () => {
     // const data = await provider.getCode(address);
     // const isRegistered = await write_contract.registerUser("god");
     // const gasLimit = 100000;
-    // const wallet = new ethers.Wallet(privateKey, provider);
-    // var write_contract = new ethers.Contract(address , abi , wallet);
+    
+    
     // const tx = await write_contract.connect(wallet).registerUser("god");
     // await tx.wait();
     const isRegistered = await read_contract.checkRegistration("god");
@@ -33,4 +34,34 @@ const main = async () => {
     
 }
 
-main();
+async function loginHandling(username) {
+    const isRegistered = await read_contract.checkRegistration(username);
+    if(isRegistered){
+        return true;
+        
+    }
+    else{
+        return false;
+    }
+}
+
+async function markAtt(username , courseName) {
+    const result = await write_contract.markAttendance(username , courseName);
+    if(result){
+        return true;
+    }
+    else{
+        return false;
+    }
+     
+}
+
+async function returnAtt(username , courseName){
+    const result = await read_contract.getAttendance(username , courseName);
+    return result;
+}
+
+module.exports = {loginHandling , markAtt , returnAtt};
+
+
+

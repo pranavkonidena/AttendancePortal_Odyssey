@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attendance App - Login</title>
     <link rel="stylesheet" href="styles1.css">
+    <script src="final.js"></script>
 </head>
    
 <body>
@@ -14,11 +15,9 @@
             <h1 class="app-title">Attendance Portal</h1>
             <div class="login-form">
                 <h2 class="form-title">Login</h2>
-                <form id="form" action="index.html">
+                <form id="form" method="post" action="/dashboard">
                     <input type="name" placeholder="Name"  name="name" id="name" value="" required>
                     <input type="text" placeholder="Enrollment Number" name="enroll" id="enroll" value="" required>
-                    <input type="password" placeholder="Password"  name="pass" name="pass" value="" required>
-                    
                     <select id="branch" name="branch" required>
                         <option value="" disabled selected>Select Branch</option>
                         <option value="branch1">CSE</option>
@@ -26,16 +25,14 @@
                         <option value="branch3">ECE</option>
                         <option value="branch4">MNC</option>
                     </select>
-    
-                
-                    
-                    <button type="submit" class="btn" id="button">Login</button>
+        <button type="submit" class="btn" id="button">Login</button>
                 </form>
             </div>
         </div>
     </div>
     
-    <script src="script.js"></script>
+
+
 
 </body>
 </html>
